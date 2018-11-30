@@ -3,6 +3,6 @@
 
 1. ログイン認証機能
 2. 決済時宛先確認機能
-3. 決済機能部分
+3. 決済機能
 
 ![ecsite](https://user-images.githubusercontent.com/43233389/49264558-1b95ba00-f492-11e8-8ad5-35b7bf3e008f.gif)
