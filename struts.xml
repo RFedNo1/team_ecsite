@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="com.internousdev.casablanca.action" extends="struts-default">
+
+	<action name="AddCartAction" class="com.internousdev.casablanca.action.AddCartAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="invalid.token">cart.jsp</result>
+	</action>
+
+	<action name="CartAction" class="com.internousdev.casablanca.action.CartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="CreateDestinationAction" class="com.internousdev.casablanca.action.CreateDestinationAction" method="execute">
+		<result name="success">createDestination.jsp</result>
+		<result name="error">errorTimeout.jsp</result>
+	</action>
+
+	<action name="CreateDestinationCompleteAction" class="com.internousdev.casablanca.action.CreateDestinationCompleteAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">createDestinationComplete.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+	</action>
+
+	<action name="CreateDestinationConfirmAction" class="com.internousdev.casablanca.action.CreateDestinationConfirmAction" method="execute">
+		<result name="success">createDestinationConfirm.jsp</result>
+		<result name="input">createDestination.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="CreateUserAction" class="com.internousdev.casablanca.action.CreateUserAction" method="execute">
+		<result name="success">createUser.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+    <action name="CreateUserCompleteAction" class="com.internousdev.casablanca.action.CreateUserCompleteAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">createUserComplete.jsp</result>
+		<result name="gotosettlementconfirm">createUserCompleteToSettlement.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+	</action>
+
+    <action name="CreateUserConfirmAction" class="com.internousdev.casablanca.action.CreateUserConfirmAction" method="execute">
+		<result name="success">createUserConfirm.jsp</result>
+		<result name="input">createUser.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+  <action name="DeleteCartAction" class="com.internousdev.casablanca.action.DeleteCartAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">cart.jsp</result>
+		<result name="error">cart.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+	</action>
+
+  <action name="DeletePurchaseHistoryAction" class="com.internousdev.casablanca.action.DeletePurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+	</action>
+
+  <action name="GoLoginAction" class="com.internousdev.casablanca.action.GoLoginAction" method="execute">
+		<result name="success">login.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+   <action name="HomeAction" class="com.internousdev.casablanca.action.HomeAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+    <action name="LoginAction" class="com.internousdev.casablanca.action.LoginAction" method="execute">
+		<result name="success">index.jsp</result>
+		<result name="gotosettlementconfirm">settlementConfirm.jsp</result>
+		<result name="input">login.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="LogoutAction" class="com.internousdev.casablanca.action.LogoutAction" method="execute">
+		<result name="success">index.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="MyPageAction" class="com.internousdev.casablanca.action.MyPageAction" method="execute">
+		<result name="success">mypage.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+	</action>
+
+   <action name="ProductDetailsAction" class="com.internousdev.casablanca.action.ProductDetailsAction" method="execute">
+		<result name="success">productDetails.jsp</result>
+		<result name="error" type="redirectAction">ProductListAction</result>
+	</action>
+
+   <action name="ProductListAction" class="com.internousdev.casablanca.action.ProductListAction" method="execute">
+		<result name="success">productList.jsp</result>
+	</action>
+
+	<action name="PurchaseHistoryAction" class="com.internousdev.casablanca.action.PurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+	</action>
+
+	<action name="ResetPasswordAction" class="com.internousdev.casablanca.action.ResetPasswordAction" method="execute">
+		<result name="success">resetPassword.jsp</result>
+	</action>
+
+	<action name="ResetPasswordCompleteAction" class="com.internousdev.casablanca.action.ResetPasswordCompleteAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">resetPasswordComplete.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+	</action>
+
+	<action name="ResetPasswordConfirmAction" class="com.internousdev.casablanca.action.ResetPasswordConfirmAction" method="execute">
+		<result name="success">resetPasswordConfirm.jsp</result>
+		<result name="input">resetPassword.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+   <action name="SearchItemAction" class="com.internousdev.casablanca.action.SearchItemAction" method="execute">
+		<result name="success">productList.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+   <action name="SettlementCompleteAction" class="com.internousdev.casablanca.action.SettlementCompleteAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">settlementComplete.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+		<result name="error">error.jsp</result>
+		<result name="timeout">errorTimeout.jsp</result>
+	</action>
+
+   <action name="SettlementConfirmAction" class="com.internousdev.casablanca.action.SettlementConfirmAction" method="execute">
+		<interceptor-ref name="token"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="success">settlementConfirm.jsp</result>
+		<result name="error">login.jsp</result>
+		<result name="invalid.token">error.jsp</result>
+	</action>
+
+</package>
+</struts>
